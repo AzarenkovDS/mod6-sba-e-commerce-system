@@ -10,10 +10,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fetchProducts = fetchProducts;
-const errorHandler_1 = require("../utils/errorHandler");
+const errorHandler_1 = require("../util/errorHandler");
 function fetchProducts() {
     return __awaiter(this, void 0, void 0, function* () {
-        //try {
         const response = yield fetch("https://dummyjson.com/products");
         if (!response.ok) {
             throw new errorHandler_1.NetworkError(`Connection error`);
@@ -23,13 +22,5 @@ function fetchProducts() {
             throw new errorHandler_1.DataError("Bad response data");
         }
         return data.products;
-        //   } catch (error) {
-        //     // Rethrow as a known application error
-        //     if (error instanceof NetworkError || error instanceof DataError) {
-        //       throw error;
-        //     } else {
-        //       throw new NetworkError((error as Error).message);
-        //     }
-        //   }
     });
 }

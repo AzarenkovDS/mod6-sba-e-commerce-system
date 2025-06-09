@@ -1,5 +1,5 @@
 import { IProduct } from "../types/product-types";
-import { NetworkError, DataError } from "../utils/errorHandler";
+import { NetworkError, DataError } from "../util/errorHandler";
 
 export async function fetchProducts(): Promise<IProduct[]> {
   const response = await fetch("https://dummyjson.com/products");
